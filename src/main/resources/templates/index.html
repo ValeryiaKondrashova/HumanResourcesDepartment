@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- для всех пользователей (страница с регистрацией и входом) -->
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
+    <link rel="shortcut icon" th:href="@{/img/16.ico}" href="../../static/img/16.ico" />
+</head>
+
+<body>
+<header class="header lock-padding">
+    <div class="nav-right">
+        <a class="a" th:href="@{/#popup}">Авторизация</a>
+    </div>
+</header>
+
+<div class="start-page">
+    <div class="head-line-text">
+        <h1>Система поддержки деятельности отдела кадров</h1>
+    </div>
+    <div class="sub-text">
+        <h3>Ваша система для автоматизации работы кадров</h3>
+    </div>
+
+    <div class="team-photo">
+        <img th:src="@{img/team.png}" alt=""/>
+    </div>
+
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup__body">
+        <div class="popup__content">
+            <a th:href="@{/}" class="popup__close close-popup">X</a>
+
+            <div class="autoriz">
+                <form  th:action="@{/perform-login}" name="test" method="post">
+                    <h3>Вход</h3>
+                    <input type="text" name="username" placeholder="Логин" required/><br>
+                    <input type="password" name="password" placeholder="Пароль" required/>
+                    <input type="submit" name="submit" class="submit form__btn" value="Отправить"/>
+
+<!--                    <input th:type="text" name="username" placeholder="Логин" required><br>-->
+<!--                    <input th:type="password" name="password" placeholder="Пароль" required>-->
+
+<!--                    <input th:type="submit" name="submit" class="submit form__btn" value="Отправить">-->
+                </form>
+<!--                <a href="/registration">Add new user</a>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

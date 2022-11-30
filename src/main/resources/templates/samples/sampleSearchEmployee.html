@@ -1,0 +1,11 @@
+<div th:fragment="sampleSearchEmployee">
+    <div class="search">
+        <form method="post" th:action="filter">
+            <input type="text" name="filter" placeholder="Введите фамилию">
+            <input type="image" th:src="@{img/search.png}" width="16px"/>
+            <!--                            <button type="submit"> <img th:src="@{img/search.png}" alt="search"></button>-->
+        </form>
+        <!--                        Поиск-->
+        <!--                        <img src="img/search.png" alt="search">-->
+    </div>
+</div>

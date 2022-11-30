@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="samples/sampleHead :: sampleHead"></head>
+
+<body>
+<header th:insert="samples/sampleNavigation :: sampleNavigation" class="header"></header>
+
+<div class="start-page">
+    <div class="shape shape-small"></div>
+    <div class="shape shape-big"></div>
+    <div class="container2">
+
+        <div class="add-text">
+            <h1>Редактирование сотрудника</h1>
+            <h3>Измените поля которые подлежали изменениям</h3>
+        </div>
+
+        <div class="add">
+            <div th:each="el : ${resEmployee}">
+                <form th:action="'/edit/' + ${el.id}" method="post">
+                    <div class="add-item">
+                        <p>Фамилия:</p>
+                        <input type="text" name="firstName" th:value="${el.firstName}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Имя:</p>
+                        <input type="text" name="lastName" th:value="${el.lastName}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Отчество:</p>
+                        <input type="text" name="patronymic" th:value="${el.patronymic}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Должность:</p>
+                        <select class="select" id="dropPosition" name="position">
+                            <option th:value="${el.position}" th:text="${el.position}"></option>
+                            <option th:each="pos : ${positions}" th:value="${pos.positionName}" th:text="${pos.positionName}"></option>
+                        </select>
+                    </div>
+                    <div class="add-item">
+                        <p>Стаж:</p>
+                        <input type="text" name="experience" th:value="${el.experience}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Дата начала работы:</p>
+                        <input type="text" name="startWork" th:value="${el.startWork}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Мобильный телефон:</p>
+                        <input type="text" name="telephone" th:value="${el.telephone}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Электронная почта:</p>
+                        <input type="text" name="email" th:value="${el.email}"><br>
+                    </div>
+                    <div class="add-item">
+                        <p>Время работы:</p>
+                        <input type="text" name="timeWork" th:value="${el.timeWork}"><br>
+                    </div>
+                    <button type="submit">Подтвердить изменения</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

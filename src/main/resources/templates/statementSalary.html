@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:insert="samples/sampleHead :: sampleHead"></head>
+
+<body>
+<header th:insert="samples/sampleNavigation :: sampleNavigation" class="header"></header>
+
+
+<div class="start-page">
+    <div class="shape shape-small"></div>
+    <div class="shape shape-big"></div>
+    <div class="container">
+
+        <div class="block block-margin_top">
+            <!--            <div class="nav-table">-->
+            <!--                <a href="/statements"><h3>Справка с места работы</h3></a>-->
+            <!--                <a href="/statementAllEmployees"><h3>Выписка всех сотрудников</h3></a>-->
+            <!--                <button class="nav-button">Получить документ</button>-->
+            <!--            </div>-->
+            <div class="sub-text">
+                <h1>Создание выписки о заработной плате сотрудников</h1>
+                <h3 style="margin: 20px 0 40px 0;">
+                    При формировании выписки о заработной плате сотрудников на вашем компьютере будет сохранен документ,
+                    где можно будет просмотреть заработную плату, которую предприятие выплачивает ежемесячно.
+                </h3>
+                <form th:action="@{/statementSalary}" method="post">
+                    <button type="submit" class="nav-button" style="position: relative; width:98%;">Получить документ</button>
+                </form>
+            </div>
+
+            <div class="team-photo">
+                <img src="img/document.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

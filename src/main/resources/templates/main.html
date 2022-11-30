@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:security=""> <!-- для админов и сотрудников -->
+    <head th:insert="samples/sampleHead :: sampleHead"></head>
+
+    <body>
+        <header th:insert="samples/sampleNavigation :: sampleNavigation" class="header"></header>
+        <div class="start-page">
+            <div class="head-line-text">
+                <h1>Система поддержки деятельности отдела кадров</h1>
+            </div>
+            <div class="sub-text">
+                <h3>Ваша система для автоматизации работы кадров</h3>
+<!--                <div sec:authorize=hasRole(‘ADMIN')">-->
+<!--                    <h3><a class="a" th:href="@{/user/navigationAdmin}">ПАНЕЛЬ АДМИНА</a></h3>-->
+<!--                </div>-->
+            </div>
+
+            <li th:if="${role} == true">
+                <a th:href="@{/user/navigationAdmin}"><button class="adm-btn">ПАНЕЛЬ АДМИНА</button></a>
+            </li>
+
+
+            <div class="team-photo">
+                <img th:src="@{img/team.png}" alt=""/>
+            </div>
+        </div>
+    </body>
+</html>

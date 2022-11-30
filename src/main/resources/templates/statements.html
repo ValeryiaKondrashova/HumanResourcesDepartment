@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="samples/sampleHead :: sampleHead"></head>
+
+    <body>
+        <header th:insert="samples/sampleNavigation :: sampleNavigation" class="header"></header>
+
+
+        <div class="start-page">
+            <div class="shape shape-small"></div>
+            <div class="shape shape-big"></div>
+            <div class="container">
+
+                <div class="block block-margin_top">
+                    <div class="nav-table">
+                        <a href="/statements"><h3>Справка с места работы</h3></a>
+                        <a href="/statementAllEmployees"><h3>Выписка всех сотрудников</h3></a>
+                        <a href="/statementSalary"><h3>Выписка о ЗП</h3></a>
+<!--                        <button class="nav-button">Получить документ</button>-->
+                    </div>
+                    <div class="table">
+                        <h3>
+                            <table>
+                                <tr class="th_padding last_td_padding">
+                                    <th>Id</th>
+                                    <th>Фамилия</th>
+                                    <th>Имя</th>
+                                    <th>Отчество</th>
+                                    <th>Должность</th>
+                                    <th>Действие</th>
+                                </tr>
+                                <div th:each="el : ${employees}">
+                                    <tr class="td_center last_td_padding">
+                                        <td><p th:text="${el.id}"></p></a></td>
+                                        <td> <p th:text="${el.firstName}"></p></td>
+                                        <td> <p th:text="${el.lastName}"></p></td>
+                                        <td> <p th:text="${el.patronymic}"></p></td>
+                                        <td> <p th:text="${el.position}"></p></td>
+                                        <td> <a th:href="'/employeeStatement/' + ${el.id}" th:onclick="alert('Файл успешно создан!')">Создать справку</a> </td>
+                                    </tr>
+                                </div>
+                            </table>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="samples/sampleHead :: sampleHead"></head>
+
+    <body>
+    <header th:insert="samples/sampleNavigation :: sampleNavigation" class="header"></header>
+
+        <div class="start-page">
+            <div class="shape shape-small"></div>
+            <div class="shape shape-big"></div>
+            <div class="container2">
+
+                <div class="add-text">
+                    <h1>Найм сотрудника в компанию</h1>
+                    <h3>Все поля являются обязательными.</h3>
+                </div>
+
+                <div class="add">
+                    <h3 th:text="${message}"/><br>
+                    <form th:action="@{/addEmployee}" method="post">
+                        <div class="add-item">
+                            <p>Фамилия:</p>
+                            <input type="text" name="firstName" placeholder="Введите фамилию сотрудника" required/><br>
+                        </div>
+                        <div class="add-item">
+                            <p>Имя:</p>
+                            <input type="text" name="lastName" placeholder="Введите имя сотрудника" required/><br>
+                        </div>
+                        <div class="add-item">
+                            <p>Отчество:</p>
+                            <input type="text" name="patronymic" placeholder="Введите отчество сотрудника" required/><br>
+                        </div>
+
+
+<!--                        <div class="add-item">-->
+<!--                            <p>Должность:</p>-->
+<!--&lt;!&ndash;                            <select name="position">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <option th:each="position : ${positions}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                        th:value="${position}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                        th:label="${position}"></option>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </select>&ndash;&gt;-->
+<!--                            <input type="text" name="position" placeholder="Введите должность сотрудника" required/><br>-->
+<!--                        </div>-->
+                        <div class="add-item">
+                            <p>Должность:</p>
+                            <select class="select" id="dropPosition" name="position">
+                                <option value="0">Должность</option>
+                                <option th:each="pos : ${positions}" th:value="${pos.positionName}" th:text="${pos.positionName}"></option>
+                            </select>
+                        </div>
+
+
+                        <div class="add-item">
+                            <p>Стаж:</p>
+                            <input type="text" name="experience" placeholder="Введите стаж сотрудника" required/><br>
+                        </div>
+                        <div class="add-item">
+                            <p>Дата начала работы:</p>
+                            <input type="text" name="startWork" placeholder="Введите дату начала работы сотрудника" required/><br>
+                        </div>
+                        <div class="add-item">
+                            <p>Мобильный телефон:</p>
+                            <input type="text" name="telephone" placeholder="Введите моб.телефон сотрудника" required/><br>
+                        </div>
+                        <div class="add-item">
+                            <p>Электронная почта:</p>
+                            <input type="text" name="email" placeholder="Введите эл.почту сотрудника" required/><br>
+                        </div>
+                        <div class="add-item">
+                            <p>Время работы:</p>
+                            <input type="text" name="timeWork" placeholder="Введите кол-во отработанных часов сотрудника" required/><br>
+                        </div>
+<!--                        <div class="add-item filter-form">-->
+<!--                            <select id="dropDepartment">-->
+<!--                                <option value="0">select option</option>-->
+<!--                                <option th:each="dep : ${departments}" th:value="${dep}" th:text="${dep.departmentName}"></option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+                        <button type="submit">Нанять сотрудника</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

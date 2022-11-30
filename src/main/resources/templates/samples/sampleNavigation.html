@@ -1,0 +1,20 @@
+<div th:fragment="sampleNavigation">
+    <div class="nav">
+        <div class="logo"><a href="/main"><img th:src="@{img/logo.png}" alt="logo"></a></div>
+        <ul class="nav-items">
+            <li class="nav-item"><a class="a" th:href="@{/main}">Главная</a></li>
+            <li class="nav-item"><a class="a" th:href="@{/statements}">Выписки</a></li>
+            <li class="nav-item"><a class="a" th:href="@{/employees}">Работа с сотрудниками</a></li>
+            <li class="nav-item"><a class="a" th:href="@{/about}">О нас</a></li>
+        </ul>
+
+        <form class="form_logout" th:action="@{/logout}" method="post">
+            <h3 th:inline="text">Вы вошли как: [[${#httpServletRequest.remoteUser}]]</h3>
+            <input type="image" th:src="@{img/logout.png}" width="20px" value="Sign out"/>
+        </form>
+        <!--                <form th:action="@{/logout}" method="post">-->
+        <!--                    <input type="submit" value="Sign Out"/>-->
+        <!--                </form>-->
+    </div>
+</div>
+
